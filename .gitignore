@@ -1,3 +1,4 @@
 *.exe
 file.cpp
+temp.cpp
 *.txt
