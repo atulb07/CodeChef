@@ -9,11 +9,15 @@ int main(){
     while(t--){
         cin>>n;
         i = 1;
-        a = 1;
+        a = (n/2)+1;
 
         while(n--){
             cout<<a<<" ";
-            a=i+a;
+            if(i%2==0){
+                a=a+i;
+            }else{
+                a=a-i;
+            }
             i++;
         }
         

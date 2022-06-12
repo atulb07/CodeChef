@@ -1,43 +1,49 @@
-#include<iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-long long stepCount(long long a, long long b){
+unsigned long long int stepCount(unsigned long long int a,unsigned long long int b){
 
-    long long steps = 0;
+    unsigned long long int steps = 0;
+    unsigned long long int temp = 0;
 
-    while(b>=2*a){
-        a*=2;
-        steps++;
+    while(!(a==1 && b==1)){
+
+        if(a==b){
+            return a;
+        }
+
+        temp = b/a;
+        temp = log2(temp);
+        a = a * pow(2,temp);
+        steps += temp;
+
+        if(a==b){
+            return a + steps;
+        }
+
+        steps+=a-1;
+        b=b-a+1;
+        a=1;
     }
+    
 
-    while(a>1 && b>1){
-        a--;
-        b--;
-        steps++;
-    }
-
-    if(a==1 && b==1){
-        return steps + 1;
-    }else{
-        return steps + stepCount(a,b);
-    }
+    return steps + 1;
 }
 
 int main(){
-    cout<<"here";
-    long long t, a, b;
+    unsigned long long int t, a, b;
     cin>>t;
 
     while(t--){
         cin>>a>>b;
-        cout<<t;
-        cout<<a<<b;
 
-        if(a>b){
-            cout<<stepCount(b,a);
+        if(a==0||b==0){
+            cout<<-1<<endl;
+        } else if(a>b){
+            cout<<stepCount(b,a)<<endl;
         }else{
-            cout<<stepCount(a,b);
+            cout<<stepCount(a,b)<<endl;
         }
     }
 
