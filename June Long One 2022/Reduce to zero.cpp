@@ -30,12 +30,15 @@ int main(){
 
     while(t--){
         cin>>a>>b;
-        cout<<a<<b;
 
-        if(a>b){
-            cout<<stepCount(b,a);
+        if(a==0||b==0){
+            cout<<-1<<endl;
+        } else if(a==b){
+            cout<<a<<endl;
+        } else if(a>b){
+            cout<<stepCount(b,a)<<endl;
         }else{
-            cout<<stepCount(a,b);
+            cout<<stepCount(a,b)<<endl;
         }
     }
 
